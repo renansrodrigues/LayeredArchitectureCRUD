@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.dll
+/src/Produto.Infrastructure/obj/Debug/net8.0/Produto.Infrastructure.AssemblyInfoInputs.cache
+/.vs/LayeredArchitectureCRUD/FileContentIndex
+/.vs/LayeredArchitectureCRUD/v17
+/.vs/Produto/DesignTimeBuild
+/.vs/Produto/FileContentIndex
+/.vs/Produto/v17
+/.vs/ProjectEvaluation
+/src/Produto.Application/bin/Debug/net8.0
+/src/Produto.Application/obj/Debug/net8.0
+/src/Produto.Application/obj/Release/net8.0

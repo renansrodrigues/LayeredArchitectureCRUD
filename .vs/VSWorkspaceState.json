@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\Produto.Application",
+    "\\src\\Produto.Application\\AppServices",
+    "\\src\\Produto.Infrastructure",
+    "\\src\\Produto.Infrastructure\\Data"
+  ],
+  "SelectedNode": "\\src\\Produto.Infrastructure\\Data\\ProdutoContext.cs",
+  "PreviewInSolutionExplorer": false
+}
