@@ -8,8 +8,8 @@ namespace Produto.Infrastructure.Data
 
         public DbSet<Domain.Entities.Produto> Produtos { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-       => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=SuplyChain;Username=postgres;Password=1234");
+       // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       //=> optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=SuplyChain;Username=postgres;Password=1234");
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

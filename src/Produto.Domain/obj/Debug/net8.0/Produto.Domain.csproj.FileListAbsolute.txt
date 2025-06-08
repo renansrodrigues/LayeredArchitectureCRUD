@@ -1,0 +1,13 @@
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\bin\Debug\net8.0\Produto.Domain.deps.json
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\bin\Debug\net8.0\Produto.Domain.dll
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\bin\Debug\net8.0\Produto.Domain.pdb
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\obj\Debug\net8.0\Produto.Domain.csproj.AssemblyReference.cache
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\obj\Debug\net8.0\Produto.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\obj\Debug\net8.0\Produto.Domain.AssemblyInfoInputs.cache
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\obj\Debug\net8.0\Produto.Domain.AssemblyInfo.cs
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\obj\Debug\net8.0\Produto.Domain.csproj.CoreCompileInputs.cache
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\obj\Debug\net8.0\Produto.Domain.sourcelink.json
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\obj\Debug\net8.0\Produto.Domain.dll
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\obj\Debug\net8.0\refint\Produto.Domain.dll
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\obj\Debug\net8.0\Produto.Domain.pdb
+C:\Projetos\LayeredArcCRUD\LayeredArchitectureCRUD\src\Produto.Domain\obj\Debug\net8.0\ref\Produto.Domain.dll

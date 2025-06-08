@@ -12,7 +12,7 @@ namespace Produto.Infrastructure.Data.Repository
             _context = context;
             
         }
-
+       
 
         public async Task<Domain.Entities.Produto> Create(Domain.Entities.Produto produto)
         {

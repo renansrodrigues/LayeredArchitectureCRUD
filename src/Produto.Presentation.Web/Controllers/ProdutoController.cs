@@ -14,7 +14,7 @@ namespace Produto.Presentation.Web.Controllers
         }
 
 
-       // [TypeFilter(typeof(CustomExceptionFilter))]
+        [TypeFilter(typeof(CustomExceptionFilter))]
         [HttpPost]
         public async Task<IActionResult> CreateProduto([FromBody] CreateProdutoDto createProdutoDto)
         {
@@ -22,7 +22,7 @@ namespace Produto.Presentation.Web.Controllers
 
             if (produto == null)
             {
-                return BadRequest("Error during create operation, please try again later");
+                return BadRequest("Error during operation, please try again later");
             
             }
 
