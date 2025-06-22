@@ -5,10 +5,10 @@ namespace Produto.Application.Interface
     public interface IProdutoAppService
     {
 
-        public Task<ProdutoDto> Create(CreateProdutoDto produto);
-        //public Task<ProdutoDto> Update(UpdateProdutoDto produtoUpdate);
-        //public Task<IEnumerable<ProdutoDto>> GetAll();
-        //public Task<ProdutoDto> GetAll(Guid IdProduto);
+         Task<ProdutoDto> Create(CreateProdutoDto produto);
+        Task<ProdutoDto> Update(UpdateProdutoDto produtoUpdate);
+        Task<ProdutoDto> Delete(Guid idproduto);
+        Task<ProdutoDto> Get(Guid idproduto);
 
 
     }

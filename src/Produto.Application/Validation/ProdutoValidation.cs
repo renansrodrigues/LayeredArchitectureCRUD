@@ -25,5 +25,22 @@ namespace Produto.Application.Validation
         }
 
 
+        public void ProdutoGetValidation()
+        {            
+            RuleFor(x => x.Id)
+           .NotEmpty().WithMessage("Id can not been empt")
+           .Must(id => Guid.TryParse(id.ToString(), out _))
+           .WithMessage("The Id must be a valid GUID.");
+        }
+
+
+        public void ProdutoDeleteValidation()
+        {
+            RuleFor(x => x.Id)
+           .NotEmpty().WithMessage("Id can not been empt")
+           .Must(id => Guid.TryParse(id.ToString(), out _))
+           .WithMessage("The Id must be a valid GUID.");
+        }
+
     }
 }

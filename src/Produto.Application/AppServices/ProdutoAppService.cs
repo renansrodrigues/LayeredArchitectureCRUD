@@ -22,12 +22,12 @@ namespace Produto.Application.AppServices
             ProdutoValidation validation = new ProdutoValidation();
             ProdutoDto retorno = new ProdutoDto();
             var ProdutoModel = produtoDto.DtoCreateToDomain(produtoDto);
-
+            validation.ProdutoCreateValidation();
             ProdutoModel.validationResult = validation.Validate(ProdutoModel);
            
             if (ProdutoModel.validationResult.IsValid)
             {
-                retorno = produtoDto.DomainCreateToDto(await _unitOfWork.Produtos.Create(ProdutoModel));
+                retorno = produtoDto.DomainToDto(await _unitOfWork.Produtos.Create(ProdutoModel));
               await  _unitOfWork.CompletedAsync();
             }
             
@@ -35,28 +35,78 @@ namespace Produto.Application.AppServices
             return retorno;
         }
 
-     
+
+        public async Task<ProdutoDto> Get(Guid idproduto)
+        {
+            ProdutoValidation validation = new ProdutoValidation();
+            ProdutoDto retorno = new ProdutoDto();
+            retorno.Id = idproduto;
+
+            var ProdutoModel = retorno.DtoToDomain(retorno);
+
+            validation.ProdutoGetValidation();
+            ProdutoModel.validationResult = validation.Validate(ProdutoModel);
+
+            if (ProdutoModel.validationResult.IsValid)
+            {
+                retorno = retorno.DomainToDto(await _unitOfWork.Produtos.Get(idproduto));
+
+            }
+
+            retorno.validationResult = ProdutoModel.validationResult;
+
+            return retorno;
+
+        }
 
 
 
-        //public async Task<ProdutoDto> Update(UpdateProdutoDto produtoDto)
-        //{
-        //    //Todo: validar update
+        public async Task<ProdutoDto> Delete(Guid idproduto)
+        {
+            ProdutoValidation validation = new ProdutoValidation();
+            ProdutoDto retorno = new ProdutoDto();
+            retorno.Id = idproduto;
 
-        //}
+            var ProdutoModel = retorno.DtoToDomain(retorno);
+
+            validation.ProdutoGetValidation();
+            ProdutoModel.validationResult = validation.Validate(ProdutoModel);
+
+            if (ProdutoModel.validationResult.IsValid)
+            {
+                retorno = retorno.DomainToDto(await _unitOfWork.Produtos.Delete(ProdutoModel));
+
+            }
+
+            retorno.validationResult = ProdutoModel.validationResult;
+
+            return retorno;
 
 
-        //public async Task<IEnumerable<ProdutoDto>> GetAll()
-        //{
 
-        //}
+        }
 
 
+        public async Task<ProdutoDto> Update(UpdateProdutoDto produtoUpdateDto)
+        {
+            ProdutoValidation validation = new ProdutoValidation();
+            ProdutoDto retorno = new ProdutoDto();
+            var ProdutoModel = produtoUpdateDto.DtoUpdateToDomain(produtoUpdateDto);
+            validation.ProdutoUpdateValidation();
+            ProdutoModel.validationResult = validation.Validate(ProdutoModel);
 
-        //public async Task<ProdutoDto> GetAll(Guid idproduto)
-        //{
+            if (ProdutoModel.validationResult.IsValid)
+            {
+                retorno = produtoUpdateDto.DomainToDto(_unitOfWork.Produtos.Update(ProdutoModel));
+                await _unitOfWork.CompletedAsync();
+            }
 
-        //}
+            retorno.validationResult = ProdutoModel.validationResult;
+            return retorno;
+
+        }
+
+      
 
 
     }

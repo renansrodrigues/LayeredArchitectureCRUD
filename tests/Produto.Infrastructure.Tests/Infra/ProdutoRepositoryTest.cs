@@ -1,19 +1,11 @@
 ﻿using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using Moq;
 using Produto.Infrastructure.Data;
 using Produto.Infrastructure.Data.Repository;
-using Produto.Infrastructure.Data.Repository.Interface;
-using Produto.Infrastructure.Data.Repository.Interface.Uow;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Produto.Infrastructure.Tests.Infra
 {
-    
+
     public class ProdutoRepositoryTest
     {
 
@@ -68,16 +60,111 @@ namespace Produto.Infrastructure.Tests.Infra
 
             }
 
-               
-            
-            
+        }
 
-        
+
+        [Fact]
+        public async Task Update_Produto_with_valid_Id()
+        {
+            var options = CreateNewContextOptions();
+
+            using (var context = new ProdutoContext(options))
+            {
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+
+                var produtoRepo = new ProdutoRepository(context);
+
+                Domain.Entities.Produto produto = new Domain.Entities.Produto();
+                produto.Price = 100;
+                produto.Description = "Description";
+                produto.Name = "Name";
+                produto.Id = new Guid("11a2aefa-d2f7-49d5-9ad2-25b81731c59b");
+                
+
+                var result =  produtoRepo.Update(produto);
+                var productInDb = await context.Produtos.FindAsync(result.Id);
+
+                result.Id.Should().Be(produto.Id);
+                result.Should().NotBeNull();
+                result.Id.Should<Guid>();
+                                
+
+            }
 
 
         }
-    
-    
-    
+
+
+        [Fact]
+        public async Task Delete_Produto_with_valid_Id()
+        {
+            var options = CreateNewContextOptions();
+
+            using (var context = new ProdutoContext(options))
+            {
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+
+                var produtoRepo = new ProdutoRepository(context);
+                
+                Domain.Entities.Produto produto = new Domain.Entities.Produto();
+                produto.Price = 100;
+                produto.Description = "Description";
+                produto.Name = "Name";
+                produto.Id = new Guid("11a2aefa-d2f7-49d5-9ad2-25b81731c59b");               
+
+                var result = await produtoRepo.Delete(produto);
+                
+
+                result.Id.Should().Be(produto.Id);
+                result.Should().NotBeNull();
+                result.Id.Should<Guid>();
+
+
+            }
+
+
+        }
+
+
+
+        [Fact]
+        public async Task Get_Produto_with_valid_Id()
+        {
+            var options = CreateNewContextOptions();
+
+            using (var context = new ProdutoContext(options))
+            {
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+
+                var produtoRepo = new ProdutoRepository(context);
+
+                Domain.Entities.Produto produto = new Domain.Entities.Produto();
+                produto.Price = 100;
+                produto.Description = "Description";
+                produto.Name = "Name";
+                produto.Id = new Guid("11a2aefa-d2f7-49d5-9ad2-25b81731c59b");
+
+                var result = await produtoRepo.Create(produto);
+                var productInDb = await produtoRepo.Get(result.Id);
+
+
+
+                productInDb.Id.Should().Be(produto.Id);
+                productInDb.Should().NotBeNull();
+                productInDb.Id.Should<Guid>();
+                productInDb.Name.Should().Be("Name");
+                productInDb.Description.Should().Be("Description");
+                productInDb.Price.Should().Be(100);
+
+
+            }
+
+
+        }
+
+
     }
 }
